@@ -1,0 +1,530 @@
+/* 1. CORE VARIABLES & BASE */
+:root {
+  --primary: #1e4d2b;
+  --accent: #d4af37;
+  --glass: rgba(255, 255, 255, 0.9);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* 2. LAYOUT & BACKGROUND */
+.welcome-page {
+background-color: #1a1a1a; 
+
+    /* We reduced the darkness here (0.2 and 0.4 instead of 0.6 and 0.8) */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), 
+                      url("school-bg.jpg");
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover !important;
+    background-attachment: scroll; 
+
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Allows content to stack vertically */
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Tablet and Desktop Adjustment */
+@media (min-width: 768px) {
+    .welcome-page {
+        background-attachment: fixed; /* Re-enable parallax effect for computers */
+    }
+}
+
+.school-title {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.tagline {
+    color: var(--accent) !important;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.9);
+    font-weight: 400;
+}
+
+/* Premium Logo Styling */
+.logo-container {
+    width: 110px;
+    height: 110px;
+    background: #ffffff;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border: 3px solid var(--accent);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.form-logo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.logo-container:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Header Text Enhancements */
+.form-title {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.form-subtitle {
+    color: #444;
+    font-weight: 400;
+}
+
+.form-header h2 {
+    color: var(--primary);
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    letter-spacing: -0.5px;
+}
+
+.form-header p {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.header-divider {
+    width: 50px;
+    height: 3px;
+    background: var(--accent);
+    margin: 0 auto 25px;
+    border-radius: 5px;
+}
+
+/* 3. GLASS CARD */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(15px);
+  padding: 40px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 100%;
+}
+
+.glass-card a {
+    background: rgba(30, 77, 43, 0.1);
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: 0.3s;
+    text-decoration: none;
+    color: var(--primary);
+}
+
+.glass-card a:hover {
+    background: var(--primary);
+    color: white !important;
+}
+
+/* 4. FORM INPUTS & DROPDOWNS */
+.input-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 5px 0 8px 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+input, select {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid #eef0f2;
+  border-radius: 12px;
+  background: white;
+  font-size: 0.95rem;
+  color: #333;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+}
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%231e4d2b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 16px;
+  cursor: pointer;
+}
+
+input:focus, select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 12px rgba(30, 77, 43, 0.15);
+  transform: scale(1.01);
+}
+
+/* 5. UPLOAD SECTION (STYLISH & COMPACT) */
+.upload-section {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+}
+
+.section-title {
+    font-size: 0.75rem;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+    font-weight: 700;
+    opacity: 0.8;
+}
+
+.upload-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.upload-box {
+    position: relative;
+}
+
+.upload-box input {
+    display: none; /* Hide real file input */
+}
+
+.upload-box label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 5px;
+    background: white;
+    border: 1.5px dashed #ccc;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-height: 100px;
+}
+
+.upload-box .icon {
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+}
+
+.upload-box span {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-align: center;
+    line-height: 1.2;
+}
+
+.upload-box p {
+    font-size: 0.55rem;
+    color: #888;
+    margin-top: 2px;
+    text-transform: uppercase;
+}
+
+.upload-box label:hover {
+    border-color: var(--accent);
+    background: #fffef0;
+    transform: translateY(-2px);
+}
+
+/* Success State Class */
+.upload-box.selected label {
+    border: 1.5px solid #28a745;
+    background: #f0fff4;
+}
+
+.upload-box.selected span {
+    color: #28a745;
+}
+
+/* 6. BUTTONS */
+.modern-btn {
+  display: inline-block;
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--primary), #2e7d32);
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 10px 20px rgba(46, 125, 50, 0.2);
+}
+
+.modern-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 25px rgba(46, 125, 50, 0.3);
+  filter: brightness(1.1);
+}
+
+/* 7. DASHBOARD TABLE & STATS */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  background: white;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+table { width: 100%; border-collapse: collapse; }
+
+thead th {
+  background: var(--primary);
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+tbody td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.student-img {
+  width: 50px;
+  height: 65px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+/* 8. LOADERS & ANIMATIONS */
+#loader-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid var(--accent);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+.fade-in { animation: fadeIn 0.8s ease-out; }
+/* Responsive Fixes */
+@media (max-width: 768px) {
+    .glass-card {
+        padding: 20px; /* Less padding on small screens */
+        margin: 10px;
+    }
+    
+    .input-row {
+        flex-direction: column; /* Stack Name/Email on top of each other */
+        gap: 0px !important;
+    }
+
+    .school-title {
+        font-size: 1.8rem; /* Smaller text for phones */
+    }
+
+    .upload-grid {
+        grid-template-columns: 1fr; /* Stack upload boxes on very small phones */
+    }
+}
+
+
+
+
+/* 1. CORE VARIABLES & BASE */
+:root {
+  --primary: #1e4d2b;
+  --accent: #d4af37;
+  --glass: rgba(255, 255, 255, 0.9);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* 2. LAYOUT & BACKGROUND */
+.welcome-page {
+  /* FIX: Ensure your background image is in htdocs */
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.85)),
+              url("school-bg.jpg") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* 3. GLASS CARD - FIX: Added max-width and centered it */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(15px);
+  padding: 30px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 100%;
+  max-width: 450px; /* FIX: Prevents the card from being too wide */
+  margin: auto;
+}
+
+/* 4. LOGO STYLING - FIX: This forces the logo to stay small */
+.logo-container {
+    width: 100px;  /* FIX: Fixed width */
+    height: 100px; /* FIX: Fixed height */
+    background: #ffffff;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border: 3px solid var(--accent);
+    overflow: hidden;
+}
+
+/* FIX: This makes sure the actual image inside doesn't overflow */
+.form-logo, .logo-container img {
+    max-width: 80px; 
+    height: auto;
+    object-fit: contain;
+}
+
+/* Text Styling */
+.school-title {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.tagline {
+    color: var(--accent) !important;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+/* 5. INPUTS & BUTTONS */
+.input-group { margin-bottom: 15px; text-align: left; }
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #eef0f2;
+  border-radius: 10px;
+  outline: none;
+}
+
+.modern-btn {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.modern-btn:hover { background: #2e7d32; }
+
+/* 6. UPLOAD GRID - FIX: Compact layout */
+.upload-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.upload-box label {
+    padding: 10px 5px;
+    border: 1.5px dashed #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.65rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Responsive Fix */
+@media (max-width: 480px) {
+    .glass-card { padding: 20px; }
+    .school-title { font-size: 1.6rem; }
+}
+
+
+
+/* Define the Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+        filter: blur(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* Apply the animation to the main containers */
+.glass-card, .dashboard-container {
+    animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Make the logo pop in slightly later for a premium feel */
+.logo-container {
+    opacity: 0;
+    animation: fadeInUp 0.8s 0.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
